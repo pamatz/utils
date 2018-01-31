@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/replace', function () {
+    return view('replace');
+});
+
+Route::post('/replacer', 'HomeController@replacer')->name('replacer');
