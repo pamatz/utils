@@ -12,7 +12,7 @@ class HomeController extends Controller
         $originalName = $request->filer->getClientOriginalName();
         $path = $request->file('filer')->store('files');
         $contents = Storage::get($path);
-        $contents = substr_replace($contents, $request->get('replace_txt'), $request->get('start'), strlen($request->get('replace_txt')));
+        $contents = substr_replace($contents, $request->get('replace_txt'), 34, strlen($request->get('replace_txt')));
         Storage::put('files/' . $originalName, $contents);
         Storage::delete($path);
         return response()->download(storage_path('app/files/' . $originalName))->deleteFileAfterSend(true);

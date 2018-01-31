@@ -25,20 +25,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('start') ? ' has-error' : '' }}">
-                            <label for="start" class="col-md-4 control-label">Sustitur desde</label>
-
-                            <div class="col-md-6">
-                                <input id="start" type="start" class="form-control" name="start" value="{{ old('start') }}" required>
-
-                                @if ($errors->has('start'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('start') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('replace_txt') ? ' has-error' : '' }}">
                             <label for="replace_txt" class="col-md-4 control-label">Texto a sustituir</label>
 
