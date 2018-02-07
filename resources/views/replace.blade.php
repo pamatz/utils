@@ -10,12 +10,24 @@
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('replacer') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('filer') ? ' has-error' : '' }}">
-                            <label for="filer" class="col-md-4 control-label">Archivo a sustituir</label>
+                        <div class="form-group{{ $errors->has('zip_filer') ? ' has-error' : '' }}">
+                            <label for="zip_filer" class="col-md-4 control-label">Sustitución masiva (zip)</label>
 
                             <div class="col-md-6">
-                                <input id="filer" type="file" class="form-control" name="filer" value="{{ old('filer') }}" required autofocus>
+                                <input id="zip_filer" type="file" class="form-control" name="zip_filer" value="{{ old('zip_filer') }}" autofocus>
+
+                                @if ($errors->has('zip_filer'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('zip_filer') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('filer') ? ' has-error' : '' }}">
+                            <label for="filer" class="col-md-4 control-label">o archivo a sustituir</label>
+
+                            <div class="col-md-6">
+                                <input id="filer" type="file" class="form-control" name="filer" value="{{ old('filer') }}">
 
                                 @if ($errors->has('filer'))
                                     <span class="help-block">
