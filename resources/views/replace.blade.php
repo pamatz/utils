@@ -37,20 +37,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('replace_txt') ? ' has-error' : '' }}">
-                            <label for="replace_txt" class="col-md-4 control-label">Texto a sustituir</label>
-
-                            <div class="col-md-6">
-                                <input id="replace_txt" type="replace_txt" class="form-control" name="replace_txt" required>
-
-                                @if ($errors->has('replace_txt'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('replace_txt') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
