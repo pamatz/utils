@@ -37,6 +37,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('date_txt') ? ' has-error' : '' }}">
+                            <label for="date_txt" class="col-md-4 control-label">Fecha a modificar mes-día (mmdd)</label>
+
+                            <div class="col-md-6">
+                                <input id="date_txt" type="text" class="form-control" name="date_txt" required>
+
+                                @if ($errors->has('date_txt'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('date_txt') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

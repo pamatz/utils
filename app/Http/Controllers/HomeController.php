@@ -18,6 +18,7 @@ class HomeController extends Controller
             $new_zip->make(storage_path('app/files/' . $originalName));
             foreach ($txt_files as $file) {
                 $contents = \Zipper::make(storage_path('app/' . $path))->getFileContent($file);
+                $contents = substr_replace($contents, $request->get('date_txt'), 27, 4);
                 $contents = substr_replace($contents, '01000001', 34, 8);
                 $new_zip->addString($file, $contents);
             }
@@ -26,6 +27,7 @@ class HomeController extends Controller
             $originalName = $request->filer->getClientOriginalName();
             $path = $request->file('filer')->store('files');
             $contents = Storage::get($path);
+            $contents = substr_replace($contents, $request->get('date_txt'), 27, 4);
             $contents = substr_replace($contents, '01000001', 34, 8);
             Storage::put('files/' . $originalName, $contents);
         }
